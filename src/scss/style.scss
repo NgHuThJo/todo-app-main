@@ -1,0 +1,109 @@
+@use "./abstracts/" as *;
+@use "./base/" as *;
+@use "./components/" as *;
+@use "./layout/" as *;
+@use "./utilities/" as *;
+
+// General rules
+.body {
+    --_bgi-header: var(--bgi-header);
+
+    background-image: var(--_bgi-header);
+    background-repeat: no-repeat;
+
+    &.light {
+        --bgi-header: url("../../images/bg-mobile-light.jpg");
+    }
+
+    &.dark {
+        --bgi-header: url("../../images/bg-mobile-dark.jpg");
+    }
+
+    @include min-query("s") {
+        &.light {
+            --bgi-header: url("../../images/bg-desktop-light.jpg");
+        }
+
+        &.dark {
+            --bgi-header: url("../../images/bg-desktop-dark.jpg");
+        }
+    }
+}
+
+.header {
+    padding-block: 3rem 2rem;
+}
+
+.main {
+    @include grid;
+
+    gap: 1rem;
+    grid-template-rows: auto 1fr;
+}
+
+.form {
+    input[type="text"] {
+        width: 100%;
+        border: none;
+    }
+}
+
+.form,
+.task {
+    @include flex(null, null, center, 1rem);
+
+    padding: 0.875rem 1.25rem;
+
+    font: {
+        size: var(--fs-item);
+    }
+}
+
+.form,
+.todo__list {
+    border-radius: 0.25rem;
+    background-color: hsl(var(--bgc-body));
+    box-shadow: 0 0 1rem 0.25rem hsl(var(--c-task));
+}
+
+.todo__list {
+    > *:not(:first-child) {
+        border-top: 1px solid hsl(var(--c-task));
+    }
+}
+
+// Specific rules
+.theme__button {
+    img[aria-pressed="false"] {
+        display: none;
+    }
+}
+
+.task {
+    color: hsl(var(--c-task));
+
+    p {
+        width: 100%;
+    }
+}
+
+.checkbox {
+    @include grid(center, center);
+
+    flex-shrink: 0;
+    width: 1.25rem;
+    aspect-ratio: 1;
+    border: 1px solid hsl(var(--c-task));
+    border-radius: 50%;
+
+    &[aria-pressed="true"] {
+        background-image: var(--bgi-checkbox);
+    }
+}
+
+.cross {
+    @include grid(center, center);
+
+    width: 0.75rem;
+    aspect-ratio: 1;
+}

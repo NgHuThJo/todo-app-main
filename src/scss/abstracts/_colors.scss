@@ -1,0 +1,64 @@
+// Primary colors
+// Naming convention based on position in color wheel
+// 30 - 210: warm - mid - cool
+// 210 - 30: cool - mid - warm
+$c-blue-cyan-300: 220 98% 61%; // c all option
+$c-cyan-m-300: 192 100% 67%; // gradient color from
+$c-violet-400: 280 87% 65%; // gradient color to
+
+// Light theme
+$c-white-000: 0 0% 98%; // bgc body
+$c-blue-c-100: 236 33% 92%; // c task completed
+$c-blue-c-300: 233 11% 84%; // c body
+$c-blue-c-500: 236 9% 61%; // c options
+$c-blue-c-600: 235 19% 35%; // c task
+
+// Dark theme
+$c-blue-c-800: 235 21% 11%; // 
+$c-blue-c-700: 235 24% 19%; //  
+$c-blue-c-200: 234 39% 85%; // 
+$c-blue-c-000: 236 33% 92%; // 
+$c-blue-c-400: 234 11% 52%; // 
+$c-blue-c-650: 233 14% 35%; // 
+$c-blue-c-750: 237 14% 26%; // 
+
+// Neutral colors
+
+// Gradients
+
+// Color map for generating color utility classes
+$utility-color: (
+);
+
+// Color map for generating custom color properties
+$contextual-color: (
+  "color": (
+    "option-all": $c-blue-cyan-300,
+  ),
+  "background-color": ( 
+  ),
+  "background-image": (
+    "checkbox": linear-gradient(to bottom right, hsl($c-cyan-m-300), hsl($c-violet-400)),
+  ),
+);
+
+// Theme map for generating theme classes
+$theme-color: (
+  "dark": (
+    "color": (
+    ),
+    "background-color": (
+    ),
+  ),
+  "light": (
+    "color": (
+      "body": $c-blue-c-300,
+      "task": $c-blue-c-600,
+      "task-completed": $c-blue-c-100,
+      "options": $c-blue-c-500,
+    ),
+    "background-color": (
+      "body": $c-white-000,
+    ),
+  ),
+);

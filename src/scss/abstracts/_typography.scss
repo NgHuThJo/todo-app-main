@@ -1,0 +1,39 @@
+@use "sizes" as *;
+
+// Contextual font properties
+$-ff-josefin-sans: #{"\"Josefin Sans\", sans-serif"};
+
+// Default font weights
+$font-weight-thin: 100;
+$font-weight-extra-light: 200;
+$font-weight-light: 300;
+$font-weight-normal: 400;
+$font-weight-medium: 500;
+$font-weight-semi-bold: 600;
+$font-weight-bold: 700;
+$font-weight-extra-bold: 800;
+$font-weight-heavy: 900;
+
+// Font map for generating font utility classes
+$utility-font: (
+    "family": (
+        "josefin-sans": $-ff-josefin-sans,
+    ),
+);
+
+// Font map for generating custom font properties
+$contextual-font: (
+    "family": (
+        "body": $-ff-josefin-sans,
+    ),
+    "size": (
+        "body": 1.125rem,
+        "h1": 1.5rem,
+        "item": 0.75rem,
+    ),
+    "weight": (
+        "body": $font-weight-normal,
+        "heading": $font-weight-bold,
+    ),
+);
+
