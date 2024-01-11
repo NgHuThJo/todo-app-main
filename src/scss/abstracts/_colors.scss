@@ -14,13 +14,13 @@ $c-blue-c-500: 236 9% 61%; // c options
 $c-blue-c-600: 235 19% 35%; // c task
 
 // Dark theme
-$c-blue-c-800: 235 21% 11%; // 
-$c-blue-c-700: 235 24% 19%; //  
-$c-blue-c-200: 234 39% 85%; // 
-$c-blue-c-000: 236 33% 92%; // 
-$c-blue-c-400: 234 11% 52%; // 
-$c-blue-c-650: 233 14% 35%; // 
-$c-blue-c-750: 237 14% 26%; // 
+$c-blue-c-800: 235 21% 11%; // bgc body 
+$c-blue-c-700: 235 24% 19%; // bgc task
+$c-blue-c-200: 234 39% 85%; // c task
+$c-blue-c-000: 236 33% 92%; // c options hover
+$c-blue-c-400: 234 11% 52%; // c body
+$c-blue-c-650: 233 14% 35%; // c options
+$c-blue-c-750: 237 14% 26%; // c drag and drop
 
 // Neutral colors
 
@@ -33,7 +33,8 @@ $utility-color: (
 // Color map for generating custom color properties
 $contextual-color: (
   "color": (
-    "option-all": $c-blue-cyan-300,
+    "heading": $c-white-000,
+    "option-button-all": $c-blue-cyan-300,
   ),
   "background-color": ( 
   ),
@@ -46,8 +47,15 @@ $contextual-color: (
 $theme-color: (
   "dark": (
     "color": (
+      "body": $c-blue-c-600,
+      "task": $c-blue-c-400,
+      "task-completed": $c-blue-c-600,
+      "options": $c-blue-c-650,
+      "option-button-hover": $c-white-000,
     ),
     "background-color": (
+      "body": $c-blue-c-800,
+      "task": $c-blue-c-700,
     ),
   ),
   "light": (
@@ -59,6 +67,7 @@ $theme-color: (
     ),
     "background-color": (
       "body": $c-white-000,
+      "task": $c-white-000,
     ),
   ),
 );

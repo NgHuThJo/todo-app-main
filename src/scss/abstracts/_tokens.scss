@@ -55,7 +55,7 @@ $heading-font-family: null;
 $heading-font-weight: var(--fw-heading);
 $heading-line-height: 1;
 $heading-text-transform: null;
-$heading-color: null;
+$heading-color: hsl(var(--c-heading));
 
 $heading-1-font-size: var(--fs-h1);
 $heading-1-color: null;

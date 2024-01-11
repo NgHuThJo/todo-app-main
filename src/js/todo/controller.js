@@ -8,6 +8,11 @@ class TodoControl {
         this.view.listenToUpdate(this.handleUpdate);
         this.view.listenToRemove(this.handleRemove);
         this.view.listenToToggle(this.handleToggle);
+        this.view.listenToThemeSwitch(this.handleThemeSwitch);
+        this.view.listenToShowAll(this.handleShowAll);
+        this.view.listenToShowActive(this.handleFilter);
+        this.view.listenToShowCompleted(this.handleFilter);
+        this.view.listenToRemoveCompleted(this.handleRemoveCompleted);
         this.renderCallback(this.model.todos);
     }
 
@@ -29,6 +34,22 @@ class TodoControl {
 
     handleToggle = id => {
         this.model.toggle(id);
+    }
+
+    handleThemeSwitch = () => {
+        return this.model.switchTheme();
+    }
+
+    handleShowAll = () => {
+        this.model.renderCallback(this.model.todos);
+    }
+
+    handleFilter = (option) => {
+        this.model.filter(option);
+    }
+    
+    handleRemoveCompleted = () => {
+        this.model.removeCompleted();
     }
 };
 

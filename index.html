@@ -1,57 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <link rel="stylesheet" href="./src/css/style.css" />
+    <script src="./src/js/main.js" type="module" defer></script>
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  <link rel="stylesheet" href="./src/css/style.css">
-  <script src="./src/js/main.js" type="module" defer></script>
-  
-  <title>Frontend Mentor | Todo app</title>
-</head>
+    <title>Frontend Mentor | Todo app</title>
+  </head>
 
-<body class="body light">
-  <header class="header flex j-c-between container">
-    <h1 class="h1 letter-spacing--large upper-case">Todo</h1>
-    <button class="theme__button grid-stack">
-      <img src="./images/icon-sun.svg" alt="" aria-pressed="true">
-      <img src="./images/icon-moon.svg" alt="" aria-pressed="false">
-    </button>
-  </header>
-  <main class="main container">
-    <form class="form" action="#">
-      <button class="checkbox" aria-pressed="false">
-        <img src="./images/icon-check.svg" alt="">
+  <body class="body dark">
+    <header class="header flex j-c-between container">
+      <h1 class="h1 letter-spacing--large upper-case">Todo</h1>
+      <button class="theme__button grid-stack">
+        <img src="./images/icon-sun.svg" alt="" aria-pressed="true" />
+        <img src="./images/icon-moon.svg" alt="" aria-pressed="false" />
       </button>
-      <input type="text" placeholder="Create a new todo...">
-    </form>
-    <ul class="todo__list">
-      <template class="task__template">
-        <li class="task">
-          <button class="checkbox" aria-pressed="false">
-            <img src="./images/icon-check.svg" alt="">
-          </button>
-          <p contenteditable="true" spellcheck="false"></p>
-          <button class="cross">
-            <img src="./images/icon-cross.svg" alt="">
-          </button>
-        </li>
-      </template>
-    </ul>
-  </main>
+    </header>
+    <main class="main container">
+      <form class="form" action="#">
+        <button class="checkbox" aria-pressed="false">
+          <img src="./images/icon-check.svg" alt="" />
+        </button>
+        <input type="text" placeholder="Create a new todo..." />
+      </form>
+      <section class="todo__list-wrapper">
+        <ul class="todo__list">
+          <template class="task__template">
+            <li class="task">
+              <button class="checkbox" aria-pressed="false">
+                <img src="./images/icon-check.svg" alt="" />
+              </button>
+              <p contenteditable="true" spellcheck="false"></p>
+              <button class="cross">
+                <img src="./images/icon-cross.svg" alt="" />
+              </button>
+            </li>
+          </template>
+        </ul>
+        <ul class="option__list">
+          <li class="status">Lorem ipsum dolor sit amet.</li>
+          <li class="clear__button">
+            <button>Clear completed</button>
+          </li>
+          <li class="options">
+            <button class="all__button">All</button>
+            <button class="active__button">Active</button>
+            <button class="completed__button">Completed</button>
+          </li>
+        </ul>
+      </section>
+      <section class="drag-and-drop__wrapper">
+        <p>Drag and drop to reorder list</p>
+      </section>
+    </main>
 
-
-  <!-- Add dynamic number items left -->
-
-  <!-- All
-  Active 
-  Completed
-
-  Clear Completed
-
-  Drag and drop to reorder list -->
-  
-</body>
+  </body>
 </html>

@@ -1,9 +1,9 @@
 .form,
-.task, .flex, .flex-col, .flex-group, .flex-grid {
+.task, .options, .flex, .flex-col, .flex-group, .flex-grid {
   display: flex;
 }
 
-.main, .checkbox, .cross, .grid, .macro-grid, .grid-stack, .even-cols, .auto-grid {
+.main, .checkbox, .cross, .option__list, .grid, .macro-grid, .grid-stack, .even-cols, .auto-grid {
   display: grid;
 }
 
@@ -41,11 +41,20 @@ a {
 .h4 {
   font-weight: var(--fw-heading);
   line-height: 1;
+  color: hsl(var(--c-heading));
 }
 
 :root {
-  --c-option-all: 220 98% 61%;
+  --c-heading: 0 0% 98%;
+  --c-option-button-all: 220 98% 61%;
   --bgi-checkbox: linear-gradient(to bottom right, hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+  --c-body: 235 19% 35%;
+  --c-task: 234 11% 52%;
+  --c-task-completed: 235 19% 35%;
+  --c-options: 233 14% 35%;
+  --c-option-button-hover: 0 0% 98%;
+  --bgc-body: 235 21% 11%;
+  --bgc-task: 235 24% 19%;
   --ff-body: "Josefin Sans", sans-serif;
   --fs-body: 1.125rem;
   --fs-h1: 1.5rem;
@@ -2049,12 +2058,23 @@ h6 {
   text-transform: uppercase;
 }
 
+.dark {
+  --c-body: 235 19% 35%;
+  --c-task: 234 11% 52%;
+  --c-task-completed: 235 19% 35%;
+  --c-options: 233 14% 35%;
+  --c-option-button-hover: 0 0% 98%;
+  --bgc-body: 235 21% 11%;
+  --bgc-task: 235 24% 19%;
+}
+
 .light {
   --c-body: 233 11% 84%;
   --c-task: 235 19% 35%;
   --c-task-completed: 236 33% 92%;
   --c-options: 236 9% 61%;
   --bgc-body: 0 0% 98%;
+  --bgc-task: 0 0% 98%;
 }
 
 .visually-hidden {
@@ -2070,9 +2090,12 @@ h6 {
 }
 
 .body {
+  --transition-duration: 0.5s;
   --_bgi-header: var(--bgi-header);
   background-image: var(--_bgi-header);
   background-repeat: no-repeat;
+  background-size: contain;
+  transition: all var(--transition-duration);
 }
 .body.light {
   --bgi-header: url("../../images/bg-mobile-light.jpg");
@@ -2094,32 +2117,49 @@ h6 {
 }
 
 .main {
-  gap: 1rem;
+  --gap-main: 1rem;
+  --padding-item: 0.875rem 1.25rem;
+  --border-radius: 8px;
+  gap: var(--gap-main);
   grid-template-rows: auto 1fr;
 }
 
+.form {
+  border-radius: var(--border-radius);
+}
 .form input[type=text] {
   width: 100%;
   border: none;
+  background-color: inherit;
 }
 
 .form,
 .task {
   align-items: center;
   gap: 1rem;
-  padding: 0.875rem 1.25rem;
+  padding: var(--padding-item);
   font-size: var(--fs-item);
 }
 
 .form,
 .todo__list {
-  border-radius: 0.25rem;
-  background-color: hsl(var(--bgc-body));
-  box-shadow: 0 0 1rem 0.25rem hsl(var(--c-task));
+  background-color: hsl(var(--bgc-task));
 }
 
-.todo__list > *:not(:first-child) {
-  border-top: 1px solid hsl(var(--c-task));
+.todo__list-wrapper:has(.todo__list:empty) .status {
+  border-top-left-radius: var(--border-radius);
+}
+.todo__list-wrapper:has(.todo__list:empty) .clear__button {
+  border-top-right-radius: var(--border-radius);
+}
+
+.todo__list {
+  border-top-left-radius: var(--border-radius);
+  border-top-right-radius: var(--border-radius);
+  overflow: hidden;
+}
+.todo__list > * {
+  border-bottom: 1px solid hsl(var(--c-task));
 }
 
 .theme__button img[aria-pressed=false] {
@@ -2142,8 +2182,14 @@ h6 {
   border: 1px solid hsl(var(--c-task));
   border-radius: 50%;
 }
+.checkbox img {
+  display: none;
+}
 .checkbox[aria-pressed=true] {
   background-image: var(--bgi-checkbox);
+}
+.checkbox[aria-pressed=true] img {
+  display: block;
 }
 
 .cross {
@@ -2151,4 +2197,43 @@ h6 {
   align-items: center;
   width: 0.75rem;
   aspect-ratio: 1;
+}
+
+.option__list {
+  row-gap: var(--gap-main);
+  grid-template-rows: repeat(2, auto);
+  grid-template-columns: repeat(2, auto);
+}
+.option__list > * {
+  padding: var(--padding-item);
+  background-color: hsl(var(--bgc-task));
+}
+.option__list button:not(.all__button):hover {
+  color: hsl(var(--c-option-button-hover));
+}
+
+.status {
+  grid-area: 1/1/2/2;
+  border-bottom-left-radius: var(--border-radius);
+}
+
+.clear__button {
+  grid-area: 1/2/2/-1;
+  border-bottom-right-radius: var(--border-radius);
+  text-align: right;
+}
+
+.all__button {
+  color: hsl(var(--c-option-button-all));
+}
+
+.options {
+  justify-content: center;
+  gap: 1rem;
+  grid-area: 2/1/-1/-1;
+  border-radius: var(--border-radius);
+}
+
+.drag-and-drop__wrapper {
+  text-align: center;
 }/*# sourceMappingURL=style.css.map */
